@@ -1,5 +1,5 @@
 #!/bin/sh
-# do not use sh
+# Author : Himanshu Shekhar < https://github.com/himanshushekharb16 >
 wget -t 2 --quiet www.google.co.in 
 if [ -f 'index.html' ]; then
 	echo "network is up"
