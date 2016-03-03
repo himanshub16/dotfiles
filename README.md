@@ -13,3 +13,4 @@ Purpose : Checks current system proxy configuration on a Debian/Ubuntu System.
 # githubsync.sh
 Usage : sh githubsync.sh
 Purpose : Sync your local repo with github, very novice and lame method. For syncing with master branch only.
+
