@@ -6,6 +6,6 @@
 # read -p "Enter directory location to sync with github : " dirname
 # cd $dirname
 git add -A
-read -p "Enter any commit message (if any) : " commsg
-git commit -m $commsg
+read -r -p "Enter any commit message (if any) : " commsg
+git commit -m '$commsg'
 git push -u origin master
