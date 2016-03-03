@@ -1,6 +1,6 @@
 # MyScripts
 Scripts to automate most common tasks that I perform in daily life. Yeah, like a SysAdmin, automate and stay lazy. :P
-=======================================================================================
+---------------------------------------------------------------------------------------
 
 # net_check.sh
 Usage : sh net_check.sh
