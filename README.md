@@ -10,6 +10,10 @@ Purpose : Checks whether your connection to the internet is alive or not. Not a 
 Usage : bash proxy_check.sh
 Purpose : Checks current system proxy configuration on a Debian/Ubuntu System.
 
+# md5gen.sh
+Usage : bash md5gen.sh
+Purpose : Generate md5sum of a given number of strings and append them to a file. Useful when trying to create a record of hashed strings.
+
 # githubsync.sh
 Usage : sh githubsync.sh
 Purpose : Sync your local repo with github, very novice and lame method. For syncing with master branch only.
@@ -17,4 +21,3 @@ Purpose : Sync your local repo with github, very novice and lame method. For syn
 # update.sh
 Usage : sh update.sh
 Purpose : Keep your system updated by downloading the available updates/upgrades from the repos
-
