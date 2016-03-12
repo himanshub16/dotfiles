@@ -2,6 +2,10 @@
 Scripts to automate most common tasks that I perform in daily life. Yeah, like a SysAdmin, automate and stay lazy. :P
 ---------------------------------------------------------------------------------------
 
+# set_brightness.sh
+Usage : sh set_brightness.sh
+Purpose : Sets the system brightness right from the terminal. Useful for headless servers. :) Supported for intel_backlight only. :(
+
 # net_check.sh
 Usage : sh net_check.sh
 Purpose : Checks whether your connection to the internet is alive or not. Not a ping based, it actually checks for a download.
