@@ -2,6 +2,10 @@
 Scripts to automate most common tasks that I perform in daily life. Yeah, like a SysAdmin, automate and stay lazy. :P
 ---------------------------------------------------------------------------------------
 
+# launch_site.sh
+Usage : sh launch_site.sh
+Purpose : Copies all the contents of current directory (where the script is present, except itsef) to /var/www/html. Just a simple way to host a website. This is required to avoid development of website on the go, or as root.
+
 # set_brightness.sh
 Usage : sh set_brightness.sh
 Purpose : Sets the system brightness right from the terminal. Useful for headless servers. :) Supported for intel_backlight only. :(
