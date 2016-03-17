@@ -8,6 +8,7 @@ if [ "$USER" != "root" ]; then
 	exit 1
 fi
 
-cp * /var/www/html/ -r
-rm /var/www/html/launch_site.sh
+read -p "Enter location from which to copy : " location
+cp "$location/" /var/www/html/ -r
 chown www-data:www-data /var/www/html -R
+echo "Thanks for using! :)"
