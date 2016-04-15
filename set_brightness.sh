@@ -1,7 +1,7 @@
 #!/bin/sh
-# Author : Himanshu Shekhar < https://github.com/himanshushekharb16 >
+# Author : Himanshu Shekhar < https://github.com/himanshub16 >
 # script to set system brightness (current support for intel_backlight only
-# useful for headless servers
+# useful for headless servers and also teletypes (ttys)
 
 if [ "$USER" != "root" ]; then
 	echo "DO RUN THE PROGRAM AS sudo / root!"

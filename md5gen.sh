@@ -1,7 +1,7 @@
 # md5gen.sh : Bash script (not sh)
 # Script to generate md5sum of a given number of strings and append them to a file "md5file"
 # Useful when you are hosting some quiz and want the answers to be hashed.
-# Author : Himanshu Shekhar < https://github.com/himanshushekharb16 >
+# Author : Himanshu Shekhar < https://github.com/himanshub16 >
 read  -p "Enter number of strings: " n
 
 fname='md5file'

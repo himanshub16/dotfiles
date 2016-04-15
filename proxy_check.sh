@@ -1,6 +1,6 @@
 #!/bin/bash
-# For proxy configuration, visit < https://github.com/himanshushekharb16/ProxyMan >
-# Author : Himanshu Shekhar < https://github.com/himanshushekharb16 >
+# For proxy configuration, visit < https://github.com/himanshub16/ProxyMan >
+# Author : Himanshu Shekhar < https://github.com/himanshub16 >
 if [[ -e "$HOME/.bashrc" ]]; then
 	a=$(grep -i proxy $HOME/.bashrc | wc -l)
 	if [[ a -eq 0 ]]; then
