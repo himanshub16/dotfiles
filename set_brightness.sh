@@ -23,4 +23,3 @@ fi
 echo "$br" > /sys/class/backlight/intel_backlight/brightness
 
 echo "Thanks for using!"
-

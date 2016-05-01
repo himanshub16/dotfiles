@@ -8,4 +8,3 @@ if [ -f 'index.html' ]; then
 else
 	echo "network is down"
 fi
-
