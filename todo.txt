@@ -3,3 +3,9 @@
 	check the argument for bounds and display message
 
 2. try to provide argument passing functionality to all scripts
+
+3. command line argument for githubsync
+
+4. different methods and arguments for net_check.sh
+
+5. 
