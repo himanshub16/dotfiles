@@ -9,3 +9,4 @@
 
 4. different methods and arguments for net_check.sh
 
+5. create a script that updates and syncs all my github repos with system
