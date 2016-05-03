@@ -1,0 +1,5 @@
+1. set_brightness : 
+	provide support to set brightness from argument
+	check the argument for bounds and display message
+
+2. try to provide argument passing functionality to all scripts
