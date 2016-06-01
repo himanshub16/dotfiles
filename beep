@@ -1,0 +1,11 @@
+ctr=0
+while [[ $ctr -lt 5 ]]
+do
+	( speaker-test -t sine -f 2000 )& pid=$! ; sleep 0.2s ; kill -9 $pid & > /dev/null
+	ctr=$((ctr+1))
+	if [[ $ctr -eq 4 ]]; then
+		sleep 0.5
+		ctr=0
+	fi
+done
+
