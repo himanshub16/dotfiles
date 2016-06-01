@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# 0 : filename 1 : time (in seconds) 2 : columns (default value : 80) 3 : repeat (integer/no/infinite)
+# 0 : filename 
+# 1 : time (in seconds) 
+# 2 : columns (default value : 80) 
+# 3 : repeat (integer/no/infinite)
+# 4 : type (alarm/beep(default)/mute)
 
 display_hash () {
-	# $1 : number of hashes $2 : number of columns
+	# $1 : number of hashes 
+	# $2 : number of columns
 	h=0
 	s=$(($2-$1))
 
@@ -28,7 +33,9 @@ display_hash () {
 }
 
 run_timer () {
-	# $1 : duration (in seconds) $2 : hash per unit time (hash per second) $3 : column width
+	# $1 : duration (in seconds) 
+	# $2 : hash per unit time (hash per second)
+	# $3 : column width
 	time=$1
 	hash=$2
 #	echo "received $1 seconds $2 per unit time for $3 columns"
@@ -67,7 +74,7 @@ alarm_clock () {
 # 1 : time (in seconds) 
 # 2 : repeat (integer/no/infinite) 
 # 3 : columns (default value : 80)
-# 4 : beep type ( single beep / alarm beep ) (default : single beep)
+# 4 : beep type ( single beep / alarm beep / mute ) (default : single beep)
 
 time=$1 col=$2
 
