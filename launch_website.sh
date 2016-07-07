@@ -9,6 +9,10 @@ if [ "$USER" != "root" ]; then
 fi
 
 read -p "Enter location from which to copy : " location
-cp "$location/" /var/www/html/ -r
-chown www-data:www-data /var/www/html -R
+if [ "$location" = "pwd" -o "$location" = "." ]; then
+	location=$(pwd)
+fi
+echo "$location"
+# cp "$location/" /var/www/html/ -r
+# chown www-data:www-data /var/www/html -R
 echo "Thanks for using! :)"
