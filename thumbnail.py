@@ -8,7 +8,7 @@ import Image
 size = 350, 400 
 
 for infile in sys.argv[1:]:
-	outfile = os.path.splitext(infile)[0]+"-thumbnail.jpg"
+	outfile = os.path.splitext(infile)[0]+"-thumbnail"+os.path.splitext(infile)[1]
 	if infile != outfile :
 		try:
 			im = Image.open (infile)
