@@ -9,7 +9,12 @@ if [ "$USER" != "root" ]; then
 fi
 
 max_br="$(cat /sys/class/backlight/intel_backlight/max_brightness)"
-read -p "Enter brightness (integer value only) (1-$max_br) " br
+if [ "$#" = 1 ]; then
+	br=$1
+else
+	read -p "Enter brightness (integer value only) (1-$max_br) " br
+fi
+
 if [ "$br" -gt "$max_br" ]; then
 	echo "Invalid input!"
 	echo "Please retry!"
