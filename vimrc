@@ -7,3 +7,5 @@ set showmatch
 set lazyredraw
 set incsearch
 set hlsearch
+set foldmethod=indent
+set foldminlines=2
