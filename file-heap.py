@@ -11,8 +11,8 @@ TARGET_DIRECTORY = os.getcwd()
 MAX_LEVELS = 0
 WORDS_LIST = []
 FILE_EXTENSIONS = [ 'txt', 'mp3', 'odt', 'ods', 'jpeg', 'png', \
-					'gif', 'mkv','avi','mp4', 'm4a', 'tiff', 'ppt' \
-					'doc', 'docx', 'sh', 'cpp', 'c', 'py', 'java' ]
+		'gif', 'mkv','avi','mp4', 'm4a', 'tiff', 'ppt' \
+		'doc', 'docx', 'sh', 'cpp', 'c', 'py', 'java' ]
 
 def random_extension():
 	return random.choice(FILE_EXTENSIONS)
@@ -22,16 +22,16 @@ def random_extension():
 
 # this function works on linux only
 # for windows, and random strings, uncomment above function
+def random_word(length):
+	return random.choice(WORDS_LIST)
+
+
 def read_words():
 	dictionary_file = "/usr/share/dict/words"
 	global WORDS_LIST
 	with open(dictionary_file, 'r') as f:
 		WORDS_LIST = f.readlines()
 	WORDS_LIST = [ w.strip().replace('\'', '').replace('\\','') for w in WORDS_LIST if len(w) > 10 ]
-
-
-def random_word(length):
-	return random.choice(WORDS_LIST)
 
 
 def random_filename():
