@@ -7,7 +7,7 @@ import random
 import string
 from copy import copy # don't want pass by reference sometimes
 
-TARGET_DIRECTORY = "/home/himanshu/Downloads/hide-your-file"
+TARGET_DIRECTORY = "~/Downloads/hide-your-file"
 MAX_LEVELS = 0
 WORDS_LIST = []
 FILE_EXTENSIONS = [ 'txt', 'mp3', 'odt', 'ods', 'jpeg', 'png', \
