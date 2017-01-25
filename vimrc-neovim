@@ -1,0 +1,111 @@
+" Sources used
+" https://github.com/mhartington/dotfiles/blob/master/.vimrc
+" Setup Vim Plug
+" If Vim Plug is not installed, install it
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	call system("pip install --user neovim")
+	call system("pip3 install --user neovim")
+endif
+
+
+" List of plugins I use
+call plug#begin("~/.local/share/nvim/plugged")
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-syntastic/syntastic'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zchee/deoplete-jedi'
+"Plug 'zchee/deoplete-clang'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+" Because youcompleteme takes time to download and install
+Plug '~/.you-complete-me-python-3'
+
+call plug#end()
+
+" general settings
+let mapleader = ','
+set number
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+set clipboard=unnamed
+set encoding=utf-8
+" no need for ex mode
+nnoremap Q <nop>
+" I don't need recording macros
+map q <nop>
+" trying to avoid shift
+noremap ; :
+" Align blocks of text and keep them selected
+vmap < <gv
+vmap > >gv
+
+"if os == "Linux"
+	" Yank text to the OS clipboard
+noremap <leader>y "+y
+noremap <leader>Y "+Y
+
+"       " Preserve indentation while pasting text from the OS clipboard
+noremap <leader>p :set paste<CR>:put +<CR>:set nopaste<CR>
+"elseif os == "Darwin"
+	"" Yank text to the OS clipboard
+	"noremap <leader>y "*y
+	"noremap <leader>Y "*Y
+
+	"" Preserve indentation while pasting text from the OS clipboard
+	"noremap <leader>p :set paste<CR>:put *<CR>:set nopaste<CR>
+"endif
+
+" Jump to end of pasted text
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]`"
+"
+"
+
+" nerdtree
+nmap <leader>ne :NERDTree<cr>
+
+" airline
+let g:airline_section_b = '%{strftime("%H:%M")}'
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+autocmd VimEnter * SyntasticToggleMode
+
+" nerdcommenter
+let g:NERDCompactSexyComs = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
+" youcompleteme
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_path_to_python_interpreter = "python3"
+let g:ycm_server_python_interpreter = "python"
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+
+" Use Deoplete.
+let g:deoplete#enable_at_startup = 1
+let g:elixir_docpreview = 0
+
+" Let <Tab> also do completion
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-i>"
+
+" Close the documentation window when completion is done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif"
