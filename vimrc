@@ -1,4 +1,4 @@
-" https://github.com/himanshub16/MyScripts/
+" https://github.com/himanshub16/MyScripts/blob/master/vimrc
 " Sources used
 " https://github.com/mhartington/dotfiles/blob/master/.vimrc
 " Documentations
@@ -14,14 +14,14 @@ if has('nvim')
 	endif
 else
 	if empty(glob('~/.vim/autoload/plug.vim'))
-		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs --proxy $http_proxy
 					\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 	endif
 endif
 
 " List of plugins I use
-call plug#begin("~/.local/share/nvim/plugged")
+call plug#begin("~/.vim/plugged")
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
@@ -36,29 +36,37 @@ Plug 'tpope/vim-surround'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 "Plug 'chriskempson/base16-vim'
-Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
+"Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
 Plug 'Shougo/neoinclude.vim'
 Plug 'majutsushi/tagbar'
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 elseif has('lua')
-	Plug 'Shougo/neocomplete'
+	Plug 'Shougo/neocomplete.vim'
+else
+	Plug 'Shougo/neocomplete.vim', { 'do': 'sudo apt install vim-nox' }
 endif
 
+" fedora and arch users have to make their tweaks
 if has('python3')
-	Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer' }
+	Plug 'Valloric/YouCompleteMe', { 'do': 'sudo apt install python3-dev clang cmake && python3 install.py --clang-completer' }
+	let g:ycm_server_python_interpreter = "python3"
 else
-	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+	Plug 'Valloric/YouCompleteMe', { 'do': 'sudo apt install python-dev clang cmake && ./install.py --clang-completer' }
+	let g:ycm_server_python_interpreter = "python2"
 endif
-" Because youcompleteme takes time to download and install
-"Plug '~/.you-complete-me-python-3'
+" Have patience because youcompleteme takes time to download and install
 
 call plug#end()
 
 " general settings
+set mouse=a
+set encoding=utf8
 let mapleader = ','
 set number
+
+" required for neovim
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
 set clipboard=unnamed
 set encoding=utf-8
@@ -111,8 +119,8 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_confirm_extra_conf = 0
+" I usually work on python3
 let g:ycm_path_to_python_interpreter = "python3"
-let g:ycm_server_python_interpreter = "python"
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
@@ -128,7 +136,7 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-i>"
 " Close the documentation window when completion is done
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif"
 
-
+" for neosnippet
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -143,12 +151,12 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 " \ neosnippet#expandable_or_jumpable() ?
 " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
-set conceallevel=2 concealcursor=niv
+	set conceallevel=2 concealcursor=niv
 endif
 "
 "
-let vim_markdown_preview_toggle=2
+"let vim_markdown_preview_toggle=2
