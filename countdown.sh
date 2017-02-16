@@ -72,8 +72,8 @@ alarm_clock () {
 
 # 0 : filename 
 # 1 : time (in seconds) 
-# 2 : repeat (integer/no/infinite) 
-# 3 : columns (default value : 80)
+# 2 : columns (default value : 80)
+# 3 : repeat (integer/no/infinite) 
 # 4 : beep type ( single beep / alarm beep / mute ) (default : single beep)
 
 time=$1 col=$2
